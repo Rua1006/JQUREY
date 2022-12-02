@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 선택자</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+        .highlight {font-weight: 900;}
+    </style>
+</head>
+<body>
+    <div id="con">
+        <ul class="lst">
+            <li><a href="https://jquery.com">텍스트1</a></li>
+            <li><a href="index.html">텍스트2</a></li>
+            <li><a>텍스트3</a></li>
+        </ul>
+    </div>
+    <br>
+    <button type="button" id="btn1">버튼1</button>
+    <script>
+        $("*").css("margin","0px").css("padding","0px");
+        $("a").css("text-decoration", "none").css("color","deeppink");
+        $("#con").css({"margin-top":"30px", "padding":"20px"});
+        $(".lst").css("list-style","none");
+        $("a[href]").css("background-color","gray");
+        $("a[href*='https'").css("padding","15px");
+    </script>
+</body>
+</html>
