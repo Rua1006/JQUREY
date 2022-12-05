@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            //td의 인덱스가 짝수번째 글자색을 빨강, 글자 크기를 30px로 변경
+            $("td:even").css("color","red").css("fontSize","30px");
+            //td의 인덱스가 홀수번째 배경색을 빨강, 글자 크기를 30pt로 변경
+            $("td:odd").css("backgroundColor","red").css("fontSize","30pt");
+        });
+    </script>
+    <section class="container">
+        <h1>짝수 번째 요소(:even)와 홀수 번째 요소(:odd)</h1>
+        <table>
+            <tr>
+                <td>Zero</td>
+            </tr>
+            <tr>
+                <td>One</td>
+            </tr>
+            <tr>
+                <td>Two</td>
+            </tr> 
+            <tr>
+                <td>Three</td>
+            </tr>
+            <tr>
+                <td>Four</td>
+            </tr>  
+            <tr>
+                <td>Five</td>
+            </tr>
+        </table>
+    </section>
+</body>
+</html>
