@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        .data img {width: 200px; }
+        .gbor {border: 10px solid green;}
+        .rbor {border: 10px solid red;}
+        .ybor {border: 10px solid yellow;}
+    </style>
+</head>
+<body>
+    <section class="container">
+        <article class="data">
+                <button>선색변경</button>
+                <img src="sample.png" title="샘플" alt="sample" class="img1 gbor">
+                <img src="sample.png" title="샘플" alt="sample" class="img1 rbor">
+                <img src="sample.png" title="샘플" alt="sample" class="img1 ybor">
+        </article>
+    </section><br><hr><br>
+    <script>
+        $(document).ready(function(){
+            //버튼을 클릭하면, img1 클래스의 img 요소에 .gbor, .rbor, .ybor을 교대로 적용
+            $("button").click(function(){
+                $(".img1").each(function(){
+                    if($(this).hasClass("gbor")){
+                        $(this).removeClass("gbor").addClass("rbor");
+                    }else if($(this).hasClass("rbor")){
+                        $(this).removeClass("rbor").addClass("ybor");
+                    }else{
+                        $(this).removeClass("ybor").addClass("gbor");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
