@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("header").after("<div class='cantainer'>니가 좋아하는 사람 : </div>");
+        //$("<div class='cantainer'>니가 좋아하는 사람 : </div>").insertAfter($("header"));
+        $("header").after($("#data"));
+        //*탐색을 하여 추가할 경우 위치가 이동 된다
+        $("footer").before("<div class='cantainer'>니가 좋아하는 사람 : </div>");
+        //$("<div class='cantainer'>니가 좋아하는 사람 : </div>").insertBefore($("footer"));
+    });
+    </script>
+</head>
+<body>
+    <header> <h1>오늘은 불금~! 함께 공부할</h1> </header>
+    <section class="container">
+        <h1>형제 추가 메소드 - before(), insertBefore(), after(), insertAfter()</h1>
+    </section><br><hr><br>
+    <article id="data">데이터1</article>
+    <footer><h3><em>copyright KBS</em></h3></footer>
+</body>
+</html>
