@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+    <style>
+    .container { clear: both; width: 1000px; margin:20px auto;}
+    .container:after { content:""; display: block; clear: both;}
+    img { width: 60px; height: auto;}
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("div").toggle(
+                function(event) {$(event.target).css("background", "deeppink").width(400);},
+                function(event) {$(event.target).css("background", "deepskyblue").width(800);},
+                function(event) {$(event.target).css("background", "green").width(200);},
+                function(event) {$(event.target).css("background", "black").width(600);}
+            );
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>이벤트 교대 수행 메소드 - toggle()</h1>
+        <p>jquery version 1.9 미만에서만 작동됨</p>
+        <article class="data">
+            <img src="sample1.png">
+            <div>DIV</div>
+        </article>
+    </section><br><hr><br>
+</body>
+</html>

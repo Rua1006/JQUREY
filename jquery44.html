@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+    .container { clear: both; width: 1000px; margin:20px auto;}
+    .container:after { content:""; display: block; clear: both;}
+    img { width: 300px; height: auto;}
+    </style>
+    <script>
+        $(document).ready(function(){
+           //img 요소를 더블클릭하면, 클릭된 이미지를 3배로 커지게 하시오(이벤트 작동은 한 번만)
+           $("img").one("dblclick", function(event){
+                var $t = $(event.target);
+                $t.width($t.width()*3);
+           });
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>일회용 범용 이벤트 적용 메소드 - one()</h1>
+        <article class="data">
+            <img src="sample1.png" id="pic1"/>
+        </article>
+    </section><br><hr><br>
+</body>
+</html>
