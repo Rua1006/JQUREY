@@ -13,23 +13,32 @@
     </style>
     <script>
         $(document).ready(function(){
-            $("img").mousemove(function(){
-                $("p:first").html(event.clientX + "," + event.clientY);
-                $("p.middle").html(event.screenX + "," + event.screenY);
-                $("p:last").html(event.pageX + "," + event.pageY);
+            $("img").mousedown(function(){
+                $(this).css("border-color", "blue");
             });
+            $("img").mouseup(function(){
+                $(this).css("border-color", "gold");
+            });
+            $("img").mouseout(function(){
+                $(this).css("border-color", "black");
+            });
+            $("img").mouseover(function(){
+                $(this).css("border-color", "red");
+            });
+            $("img").on(function(event){
+                $(event.target).width($(event.target).width*1.5);
+            })
+            $("img").dblclick(function(){
+                $(this).width($(this).width/1.5);
+            })
         });
     </script>
 </head>
 <body>
     <section class="container">
-        <h1>마우스 개별 이벤트 메소드2</h1>
-        <div>click, dblclick, mouseover, mouseout, mousedown, mouseup, mouseenter, mouseleave,
-            hover, mousemove, contextmenu, wheel 등이 있다.
-        </div>
+        <h1>범용 이벤트 적용 메소드</h1>
         <article class="data">
-            <div><img src="sample1.png" id="pic1"/></div>
-            <p></p> <p class="middle"></p> <p></p>
+            <img src="sample1.png" id="pic1"/>
         </article>
     </section><br><hr><br>
 </body>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+    .container { clear: both; width: 1000px; margin:20px auto;}
+    .container:after { content:""; display: block; clear: both;}
+    img { width: 260px; height: auto; border: 10px solid #333;}
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("img").mousemove(function(){
+                $("p:first").html(event.clientX + "," + event.clientY);
+                $("p.middle").html(event.screenX + "," + event.screenY);
+                $("p:last").html(event.pageX + "," + event.pageY);
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>마우스 개별 이벤트 메소드2</h1>
+        <div>click, dblclick, mouseover, mouseout, mousedown, mouseup, mouseenter, mouseleave,
+            hover, mousemove, contextmenu, wheel 등이 있다.
+        </div>
+        <article class="data">
+            <div><img src="sample1.png" id="pic1"/></div>
+            <p></p> <p class="middle"></p> <p></p>
+        </article>
+    </section><br><hr><br>
+</body>
+</html>

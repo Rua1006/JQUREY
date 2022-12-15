@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="./jquery-1.12.4.js"></script>
     <style>
     .container { clear: both; width: 1000px; margin:20px auto;}
     .container:after { content:""; display: block; clear: both;}
@@ -13,22 +13,24 @@
     </style>
     <script>
         $(document).ready(function(){
-            $("div").toggle(
-                function(event) {$(event.target).css("background", "deeppink").width(400);},
-                function(event) {$(event.target).css("background", "deepskyblue").width(800);},
-                function(event) {$(event.target).css("background", "green").width(200);},
-                function(event) {$(event.target).css("background", "black").width(600);}
-            );
+            var cnt = 0;
+           //img 요소를 더블클릭하면, 클릭된 이미지를 3배로 커지게 하시오(이벤트 작동은 세 번만)
+           $("img").on("click", function(event){
+                var $t = $(event.target);
+                $t.width($t.width()*3);
+                cnt++;
+                if(cnt>=3){
+                    $t.off();
+                }
+           });
         });
     </script>
 </head>
 <body>
     <section class="container">
-        <h1>이벤트 교대 수행 메소드 - toggle()</h1>
-        <p>jquery version 1.9 미만에서만 작동됨</p>
+        <h1>일회용 범용 이벤트 적용 메소드 - unbind(), off()</h1>
         <article class="data">
-            <img src="sample1.png">
-            <div>DIV</div>
+            <img src="sample1.png" id="pic1"/>
         </article>
     </section><br><hr><br>
 </body>

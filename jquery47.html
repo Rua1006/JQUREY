@@ -13,20 +13,22 @@
     </style>
     <script>
         $(document).ready(function(){
-            //p요소를 클릭하면, 클릭된 p요소의 다음(동생) 요소로 "<p>Another paragraph!</p>"
-            //가 추가되도록 하시오.(단, 새로 추가된 p요소에도 이벤트가 상속되어야 함)
-            $("p").live("click", function(){
-                $(this).after("<p>Another paragraph!</p>");
-            });
+            $("div").toggle(
+                function(event) {$(event.target).css("background", "deeppink").width(400);},
+                function(event) {$(event.target).css("background", "deepskyblue").width(800);},
+                function(event) {$(event.target).css("background", "green").width(200);},
+                function(event) {$(event.target).css("background", "black").width(600);}
+            );
         });
     </script>
 </head>
 <body>
     <section class="container">
-        <h1>이벤트 위임(상속) 메소드 - live()</h1>
-        <div>jquery version 1.9 미만에서만 작동됨</div>
+        <h1>이벤트 교대 수행 메소드 - toggle()</h1>
+        <p>jquery version 1.9 미만에서만 작동됨</p>
         <article class="data">
-            <p>Click Me!</p>
+            <img src="sample1.png">
+            <div>DIV</div>
         </article>
     </section><br><hr><br>
 </body>

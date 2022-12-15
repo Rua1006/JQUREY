@@ -5,40 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
     <style>
     .container { clear: both; width: 1000px; margin:20px auto;}
     .container:after { content:""; display: block; clear: both;}
-    img { width: 260px; height: auto; border: 10px solid #333;}
+    img { width: 60px; height: auto;}
     </style>
     <script>
         $(document).ready(function(){
-            $("img").mousedown(function(){
-                $(this).css("border-color", "blue");
+            //p요소를 클릭하면, 클릭된 p요소의 다음(동생) 요소로 "<p>Another paragraph!</p>"
+            //가 추가되도록 하시오.(단, 새로 추가된 p요소에도 이벤트가 상속되어야 함)
+            $("p").live("click", function(){
+                $(this).after("<p>Another paragraph!</p>");
             });
-            $("img").mouseup(function(){
-                $(this).css("border-color", "gold");
-            });
-            $("img").mouseout(function(){
-                $(this).css("border-color", "black");
-            });
-            $("img").mouseover(function(){
-                $(this).css("border-color", "red");
-            });
-            $("img").on(function(event){
-                $(event.target).width($(event.target).width*1.5);
-            })
-            $("img").dblclick(function(){
-                $(this).width($(this).width/1.5);
-            })
         });
     </script>
 </head>
 <body>
     <section class="container">
-        <h1>범용 이벤트 적용 메소드</h1>
+        <h1>이벤트 위임(상속) 메소드 - live()</h1>
+        <div>jquery version 1.9 미만에서만 작동됨</div>
         <article class="data">
-            <img src="sample1.png" id="pic1"/>
+            <p>Click Me!</p>
         </article>
     </section><br><hr><br>
 </body>
