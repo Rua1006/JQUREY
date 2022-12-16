@@ -21,13 +21,14 @@
     #page4 { background-image:url("./img4.jpg"); }
     #page5 { background-image:url("./img5.jpg"); }
     .imgBox { width:370px; height:300px; position:fixed; 
-    top:35%; left:-300px; z-index:30; }
+    top:35%; left:-100px; z-index:30; }
     </style>
     <script>
     $(document).ready(function(){
        //아이디가 img1인 요소의 src가 img 디렉토리에 있는 이미지를 번갈아 제공하여 마치 춤을 추는 캐릭터가 될 수 있도록 구현하시오.
-       $("#img1").setInterval(() => {
+       $("#img1").setInterval((200) => {
             $("#ani1.png").change({"src":"ani2.png"});
+            
        }, interval);
 
     });
