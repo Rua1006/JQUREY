@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <style>
+        li {list-style: none;}
+        img {width: 100px;}
+        .lst, .btnFrame {margin: 30px auto; width: 500px; clear: both;}
+        .lst li{float: left; margin-left: 30px; display: none;}
+        .txt {clear: both; text-align: center;}
+    </style> 
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $(".lst li").show(2000, function(){
+                    $(".txt").text("리스트 박스가 보여지고 있습니다.");
+                });
+            });
+            $("#btn2").click(function(){
+                $(".lst li").hide(2000, function(){
+                    $(".txt").text("리스트 박스가 사라지고 있습니다.");
+                });
+            });
+            $("#btn3").click(function(){
+                $(".lst li").toggle("slow", function(){
+                    var status = $(".lst li").css("display");
+                    if(status=="none"){
+                        $(".txt").text("리스트 박스가 사라지고 있습니다.");
+                    }else {
+                        $(".txt").text("리스트 박스가 보여지고 있습니다.");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="comment">
+        <h1>보이기/숨기기 효과 메소드 - show(), hide(), toggle()</h1>
+        <article class="data">
+            <div class="btnFrame">
+                <button id="btn1">보이기 버튼</button>
+                <button id="btn2">숨기기 버튼</button>
+                <button id="btn3">토글</button>
+            </div>
+            <ul class="lst">
+                <li><img src="sample1.png" alt="샘플"></li>
+                <li><img src="sample2.jpg" alt="샘플"></li>
+                <li><img src="sample3.jpg" alt="샘플"></li>
+            </ul>
+            <div class="txt">버튼을 누르면, 효과가 실행됩니다.</div>
+        </article>
+    </section>
+    
+</body>
+</html>

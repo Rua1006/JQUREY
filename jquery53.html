@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function(){
+            var wd0 = screen.width;
+            $(window).resize(function(){
+                var wd = $(window).width();
+                if(wd>=960 || wd==wd0){
+                    $(".title").css("color", "blue").css("font-size", "48px");
+                    $(".comment").css("color", "blue").css("font-size", "20px");
+                    $("img").attr("src","sample1.png").width(500);
+                } else if (wd>=768) {
+                    $(".title").css("color", "green").css("font-size", "36px");
+                    $(".comment").css("color", "green").css("font-size", "18px");
+                    $("img").attr("src","sample2.jpg").width(400);
+                } else {
+                    $(".title").css("color", "red").css("font-size", "24px");
+                    $(".comment").css("color", "red").css("font-size", "14px");
+                    $("img").attr("src","sample3.jpg").width(200);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="conent">
+        <section class="page" id="page1">
+            <h1 class="title">제목1</h1>
+            <div class="comment">
+                내용
+            </div>
+            <img src="" alt="">
+        </section>
+    </section>
+</body>
+</html>
