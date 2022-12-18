@@ -19,9 +19,18 @@
     <script>
     $(document).ready(function(){
         //마우스 포인터를 올리면, 이미지가 두 배로 커지고, 내려오면 원래대로 돌아가는 애니메이션을 적용하라.
-        $(".zoom").mouseover(function(){
-            $(".zoom_img").width($(".zoom_img").width*2);
-        });
+        var wd = parseInt($(".zoom").width());
+			var ht = parseInt($(".zoom").height());
+			var t = parseInt(ht / 2) * -1;
+			var l = parseInt(wd / 2) * -1;
+			var wd2 = wd * 2;
+			var ht2 = ht * 2;
+		$(".zoom").mouseover(function() {
+			$(this).find("img").stop().animate({"width":wd2+"px", "height" : ht2+"px", "top" : t+"px", "left":l+"px"}, 500);
+		});
+		$(".zoom").mouseout(function() {
+			$(this).find("img").stop().animate({"width":wd+"px", "height" : ht+"px", "top" : "0px", "left":"0px"}, 500);
+		});
     });
 </script>
 </head>

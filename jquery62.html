@@ -19,14 +19,17 @@
     <script>
    //아이디가 btn1인 요소를 클릭하면, 클래스가 collap인 요소를 아래로 펼쳐보이게 하고, 다시 클릭하면, 접혀서 보이지 않도록 컬랩시블을 구현하라.
     $(document).ready(function(){
+        var sw = true;
+        $("#btn1").text("닫기");
         $("#btn1").click(function(){
-            $(".collap").slideToggle();
-            var status = $(".collapBox .collap").css("display");
-                if(status=="none"){
-                    $(".btn").text("열기");
-                }else{
-                    $(".btn").text("닫기");
-                }
+            if(sw){
+                $(this).prev().slideUp(500);
+                $(this).text("열기");
+            } else {
+                $(this).prev().slideDown(500);
+                $(this).text("닫기");
+            }
+            sw = !sw;
         });
     });
     </script>

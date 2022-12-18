@@ -22,15 +22,23 @@
     #page5 { background-image:url("./img5.jpg"); }
     .imgBox { width:370px; height:300px; position:fixed; 
     top:35%; left:-100px; z-index:30; }
+    .imgBox img { position:absolute; transform:rotateY(0deg); left:0px; top:0px; transition:1s; }
+    .imgBox img.on { transform:rotateY(180deg); }
+
     </style>
     <script>
     $(document).ready(function(){
        //아이디가 img1인 요소의 src가 img 디렉토리에 있는 이미지를 번갈아 제공하여 마치 춤을 추는 캐릭터가 될 수 있도록 구현하시오.
-       $("#img1").setInterval((200) => {
-            $("#ani1.png").change({"src":"ani2.png"});
-            
-       }, interval);
-
+       var k = 1;
+        var intv = setInterval(function(){ 
+            if(k<=18) { ani(k); k=k+1; }
+            else { k = 1; }
+        }, 70);
+        function ani(a) {
+            $("#img1").attr("src", "ani"+a+".png");
+        };
+        $(".imgBox").animate({"left":"1800px"}, 25600);
+        $(".imgBox").animate({"left": "-300px"}, 25600);
     });
     </script>
 </head>

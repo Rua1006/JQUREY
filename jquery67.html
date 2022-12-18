@@ -54,13 +54,82 @@
     .btn.on { background:rgba(200, 10, 0, 0.8); 
     border:2px solid #fff; }
     </style>
-    <script>
-        //한 번 스크롤시 한 페이지씩 자동 스크롤되는 애니메이션과 오른쪽의 버튼을 누르면 자동으로 해당 페이지로 스크롤링되는 애니메이션을 완성하시오.
-    $(document).ready(function(){
-        $(".page").scroll(function(){
-
+<script>
+    //한 번 스크롤시 한 페이지씩 자동 스크롤되는 애니메이션과 오른쪽의 버튼을 누르면 자동으로 해당 페이지로 스크롤링되는 애니메이션을 완성하시오.
+    $(document).ready(function () {
+        var sc_pg = parseInt($(window).height());
+        $(window).on('mousewheel', function(e){
+            if(e.originalEvent.wheelDelta < 0) {
+                $('html, body').not(":animated").animate({
+                    scrollTop : '+='+sc_pg+'px'},800);
+            } else {
+                $('html, body').not(":animated").animate({
+                    scrollTop : '-='+sc_pg+'px'},800);
+            }
+            return false;
         });
+        //$(window).mousewheel
     });
+</script>
+<script>
+    //인터발 슬라이더
+    $(document).ready(function(){
+        var wd = parseInt($(window).width());
+        function rAni(){
+            $("#banner1").not(":animated").animate({
+                "margin-left" : -wd+"px"}, 800, function(){
+                $("#banner1 a").eq(0).appendTo($("#banner1"));
+                $("#banner1").css("margin-left", "0px");
+            });
+        };
+        var itv = setInterval(function(){ rAni(); }, 3000);
+    });
+</script>
+<script>
+$(document).ready(function(){
+    //메뉴의 스크롤 모션
+    $(window).scroll(function(){
+        var sct = $(window).scrollTop();
+        if(sct>=500){
+            $("#hd").css("position", "fixed");
+            $("#hd").not(":animated").slideDown(800);
+        } else if(sct>=100) {
+            $("#hd").css("display", "none");
+        } else {
+            $("#hd").css("position", "absolute");
+            $("#hd").not(":animated").slideDown(800);
+        }
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $(".pageNation .btn").eq(0).addClass("on");
+    var sc_pg = parseInt($(window).height());
+    $(window).scroll(function(){
+        var sct = $(window).scrollTop();
+        var btnPos = parseInt(sct / sc_pg);
+        $(".pageNation .btn").removeClass("on");
+        $(".pageNation .btn").eq(btnPos).addClass("on");
+    });
+    $(".pageNation .btn").click(function(){
+        var cPage = $(this).attr("data-val");
+        $('html, body').not(":animated").animate({
+            scrollTop: cPage*sc_pg + 'px'
+        }, 1600);
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    //메뉴 애니메이션
+   $("#gnb li").mouseenter(function(){
+       $(this).find(".sub").not(":animated").stop().slideDown(600);
+   }); 
+   $("#gnb li").mouseleave(function () {
+        $(this).find(".sub").css("display","none");
+   }); 
+});
 </script>
 </head>
 <body>

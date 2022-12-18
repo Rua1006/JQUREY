@@ -24,14 +24,20 @@
     $(document).ready(function(){
         //.box요소에 마우스 포인터를 올리면, .up 인 요소는 위로 슬라이딩 되고, .down 요소는 아래로 슬라이딩 되며, .left 요소는 왼쪽으로 슬라이딩 되고, .right 요소는 오른쪽으로 슬라이딩 되며,
         //.box요소에서 마우스 포인터가 빠져 나가면, 마우스 포인터를 올렸을 때의 반대 동작으로 될 수 있도록 구현하라.
-        $(".box").mouseover(function(){
-            $(".up").slideUp();
-            $(".down").slideDown();
-        });
-        
-        $(".box").mouseout(function(){
-            $(".up").slideDown();
-        });
+        var wd = parseInt($(".box").find("img").width());
+		var ht = parseInt($(".box").find("img").height());
+		$(".box").mouseover(function() {
+			$(this).find(".up").stop().animate({"margin-top" : "-"+ht+"px"}, 1000);
+			$(this).find(".down").stop().animate({"margin-top" : "0px"}, 1000);
+			$(this).find(".left").stop().animate({"margin-left" : "-"+wd+"px"}, 1000);
+			$(this).find(".right").stop().animate({"margin-left" : "0px"}, 1000);
+		});
+		$(".box").mouseout(function() {
+			$(this).find(".up").stop().animate({"margin-top" : "0px"}, 1000);
+			$(this).find(".down").stop().animate({"margin-top" : "-"+ht+"px"}, 1000);
+			$(this).find(".left").stop().animate({"margin-left" : "0px"}, 1000);
+			$(this).find(".right").stop().animate({"margin-left" : "-"+wd+"px"}, 1000);
+		});
     });
 </script>
 </head>
